@@ -173,8 +173,36 @@
 .quarkdown .ua-introduction { display: block; margin: 0 .5em 1.5em 1.5em; }
 .quarkdown .ua-introduction p { text-indent: 0 !important; }
 .quarkdown .ua-main figcaption, .quarkdown .ua-main caption { font-size: 9.96pt; line-height: 1.2; }
-.quarkdown .ua-references { font-size: 9pt; line-height: 1.2; }
-.quarkdown .ua-references li { margin-bottom: 8pt; }
+.ua-main figcaption[data-location]::before, .ua-main caption[data-location]::before { font-weight: bold; }
+
+/* Compact LaTeX-style data tables. Leave highlight.js line-number tables alone. */
+.quarkdown .ua-main table:not(pre table) { border-block: .4pt solid currentColor; }
+.quarkdown .ua-main table:not(pre table) :is(th, td) { padding: .4pt 6pt; line-height: 1.18; }
+.quarkdown .ua-main table:not(pre table) thead { border-bottom: .4pt solid currentColor; }
+.quarkdown .ua-main table:not(pre table) tbody > tr:first-child > td { border-top: 0; }
+.quarkdown .ua-main table:not(pre table) tbody > tr:last-child > td { border-bottom: 0; }
+.quarkdown .ua-main table:not(pre table) .katex { font-size: 1em; }
+.quarkdown .ua-main table > .caption-top { margin-block-end: 6pt; }
+
+.quarkdown .ua-references { font-size: 9pt; line-height: 1.25; }
+.quarkdown .ua-references h1 { margin-bottom: 14mm; }
+.quarkdown .ua-references .bibliography {
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 11pt;
+  row-gap: 8pt;
+  padding-inline-start: 2pt;
+}
+.ua-references .bibliography-entry-label { text-align: end; }
+.quarkdown .ua-references .bibliography a {
+  font-family: var(--qd-code-font);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  box-shadow: 0 0 0 .4pt #07818b;
+}
+.quarkdown .ua-main a:has(> .cross-reference) {
+  text-decoration: none;
+  box-shadow: 0 0 0 .4pt #a22;
+}
 .quarkdown .page-margin-content { font: 10pt/1 Pagella, Palatino, serif; }
 .quarkdown .pagedjs_blank_page .page-margin-content,
 .quarkdown .pagedjs_left_page .page-margin-bottom-outside,

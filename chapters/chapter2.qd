@@ -45,7 +45,7 @@ Inclui imagens com a sintaxe Markdown e acrescenta uma legenda entre aspas. A .r
 As tabelas são usadas para apresentar dados estruturados. A .ref {tab:example} é um exemplo simples.
 
 | Parâmetro | Valor | Unidade |
-|-----------|-------|---------|
+|-----------|:-----:|:-------:|
 | Velocidade da Luz \(c) | $ 2.998 \times 10^8 $ | $ \unit{\metre\per\second} $ |
 | Constante Gravitacional (G) | $ 6.674 \times 10^{-11} $ | $ \unit{\newton\metre\squared\per\kilogram\squared} $ |
 | Tamanho de um ficheiro | 1 | $ \mathrm{MiB} $ |
