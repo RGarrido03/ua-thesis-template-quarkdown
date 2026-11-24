@@ -13,7 +13,7 @@ Uma tese é tipicamente estruturada em capítulos, secções e subsecções. Ist
 
 ### Secções e Subsecções {#sec:demo-sections}
 
-Usa `##` para secções e `###` para subsecções. O nível `####` também é numerado, mas não entra no índice.
+Usa `##` para secções e `###` para subsecções. Os níveis `###` e `####` são numerados no texto, mas ficam fora do índice.
 
 #### Uma Nota sobre Rótulos (Labels) {#sec:demo-labels}
 

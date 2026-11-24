@@ -36,6 +36,8 @@ for title, caption in [('Lista de Tabelas', 'Tabela 2.1:'), ('Lista de Figuras',
 first = next(i for i, p in enumerate(pages) if 'CAPÍTULO' in p and 'Introdução' in p)
 assert first % 2 == 0 and pages[first].strip().endswith('1'), 'First chapter should restart at Arabic 1 on a recto'
 assert re.search(r'1\s+Introdução\s+1\s*$', pages[toc], re.M), 'TOC did not pick up the chapter reset'
+assert 'Secções e Subsecções' not in pages[toc], 'TOC should stop at the section level'
+assert any('Secções e Subsecções' in page for page in pages[first:]), 'Subsections should still render in the body'
 assert all(i % 2 == 0 for i, p in enumerate(pages) if 'CAPÍTULO' in p or 'APÊNDICE' in p), 'Chapter or appendix opened on a verso'
 assert '[1]' in pages[starts_with_title('Referências Bibliográficas')], 'Native IEEE bibliography missing'
 assert re.search(r'^\s*A\.1\s', pages[toc], re.M), 'Appendix numbers were not propagated to TOC'

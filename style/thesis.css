@@ -100,12 +100,13 @@
 .ua-main-start h1:first-of-type { break-before: auto; }
 .quarkdown .ua-index h1, .quarkdown .ua-index #table-of-contents { text-align: end; }
 .quarkdown .ua-index h1 {
-  font-size: 24pt;
+  font-size: 24.79pt;
   margin: 0 0 12mm;
   padding-top: 25mm;
 }
 .ua-index { --qd-line-height: 1.15; font-size: 10pt; }
 .quarkdown .ua-index nav { margin-block: 0; }
+.quarkdown .ua-toc nav ol ol { margin-inline-start: 0; padding-inline-start: 16.36pt; }
 .quarkdown .ua-index nav li { margin-block: 0.2em; }
 .quarkdown .ua-index nav a { min-width: 0; }
 .quarkdown .ua-index nav .toc-page-number { order: 2; padding-left: .5em; }
@@ -128,36 +129,39 @@
   margin: 0 0 10mm;
   padding-top: 25mm;
   text-align: end;
-  font-size: 24pt;
+  font-size: 24.79pt;
   line-height: 1.15;
 }
 .quarkdown .ua-main h1[data-location] { padding-top: 54mm; }
-.quarkdown .ua-main h1[data-location]::before {
-  content: attr(data-location);
+.quarkdown .ua-main h1[data-location]::before { content: none; }
+.ua-chapter-marker {
   position: absolute;
-  top: 21mm;
+  top: 25mm;
   right: -25mm;
-  padding: 0 8mm 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  padding-right: 2.5mm;
   border-right: 2.4mm solid;
-  font: normal 54pt/18mm Pagella, Palatino, serif;
 }
-.quarkdown .ua-main h1[data-location]::after {
-  content: "CAPÍTULO";
-  position: absolute;
-  top: 34mm;
-  right: 0;
-  font: normal small-caps 15pt/1 Pagella, Palatino, serif;
+.ua-chapter-marker::before {
+  content: attr(data-kind);
+  text-transform: uppercase;
+  font: normal 17.2pt/1 Pagella, Palatino, serif;
 }
-html:lang(en) .quarkdown .ua-main h1[data-location]::after { content: "CHAPTER"; }
-.quarkdown .ua-main .ua-appendices h1[data-location]::after { content: "APÊNDICE"; }
-html:lang(en) .quarkdown .ua-main .ua-appendices h1[data-location]::after { content: "APPENDIX"; }
-.quarkdown .ua-main h2 { font-size: 16pt; }
-.quarkdown .ua-main h3 { font-size: 13pt; }
-.quarkdown .ua-main h4 { font-size: 11pt; }
+.ua-chapter-marker::after {
+  content: attr(data-number);
+  min-width: 17mm;
+  text-align: center;
+  font: normal 75pt/18mm Pagella, Palatino, serif;
+}
+.quarkdown .ua-main h2 { font-size: 14.35pt; }
+.quarkdown .ua-main h3 { font-size: 11.96pt; }
+.quarkdown .ua-main h4 { font-size: 10.91pt; }
 .ua-main { --qd-first-paragraph-text-indent: 1.5em; }
-.quarkdown .ua-introduction { display: block; margin: 0 2em 1.5em 0; }
-.quarkdown .ua-introduction p { text-indent: 1.5em !important; }
-.quarkdown .ua-main figcaption { font-size: 9pt; line-height: 1.2; }
+.quarkdown .ua-introduction { display: block; margin: 0 .5em 1.5em 1.5em; }
+.quarkdown .ua-introduction p { text-indent: 0 !important; }
+.quarkdown .ua-main figcaption, .quarkdown .ua-main caption { font-size: 9.96pt; line-height: 1.2; }
 .quarkdown .ua-references { font-size: 9pt; line-height: 1.2; }
 .quarkdown .ua-references li { margin-bottom: 8pt; }
 .quarkdown .page-margin-content { font: 10pt/1 Pagella, Palatino, serif; }

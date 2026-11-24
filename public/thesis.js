@@ -63,14 +63,24 @@ for (const tree of [document, document.querySelector('#sidebar-template')?.conte
   }
 }
 const english = document.documentElement.lang === 'en';
+const chapterKind = heading => heading.closest('.ua-appendices')
+  ? (english ? 'Appendix' : 'Apêndice')
+  : (english ? 'Chapter' : 'Capítulo');
+for (const heading of document.querySelectorAll('.ua-main h1[data-location]')) {
+  const marker = document.createElement('span');
+  marker.className = 'ua-chapter-marker';
+  marker.setAttribute('aria-hidden', 'true');
+  marker.dataset.kind = chapterKind(heading);
+  marker.dataset.number = heading.dataset.location;
+  heading.prepend(marker);
+}
 for (const link of document.querySelectorAll('a[href^="#"]:has(> .cross-reference[data-location])')) {
   const id = link.getAttribute('href').slice(1);
   const label = appendixLabels.get(id);
   const ref = link.firstElementChild;
   if (label) ref.dataset.location = label;
-  if (document.getElementById(id)?.matches('.ua-main h1')) {
-    ref.dataset.localizedKind = label ? (english ? 'Appendix' : 'Apêndice') : (english ? 'Chapter' : 'Capítulo');
-  }
+  const target = document.getElementById(id);
+  if (target?.matches('.ua-main h1')) ref.dataset.localizedKind = chapterKind(target);
 }
 
 // ponytail: Quarkdown 2.7 has no lists of captions; replace with native lists when available.
