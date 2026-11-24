@@ -80,7 +80,7 @@
   gap: 5mm;
 }
 .ua-draft { position: absolute; top: 118mm; left: 84.3mm; font: bold 24pt/12mm Heros, Helvetica, Arial, sans-serif; }
-.ua-cover-art { margin: 36mm 23mm 0 77mm; }
+.ua-cover-art { position: absolute; inset: 150mm 23mm auto 77mm; }
 .ua-cover-art img { max-height: 60mm; }
 .quarkdown .ua-jury, .quarkdown .ua-acknowledgements { padding-top: 98mm; }
 .quarkdown .ua-abstract { padding-top: 58mm; }

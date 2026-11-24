@@ -29,7 +29,8 @@
 .var {uaGrants} {yes}
 .var {uaListings} {no}
 
-.docdescription {Dissertação apresentada à Universidade de Aveiro}
+<!-- HTML metadata; edit alongside the abstract. -->
+.docdescription {Trabalho académico apresentado à Universidade de Aveiro}
 .dockeywords
     - palavra-chave
     - Universidade de Aveiro

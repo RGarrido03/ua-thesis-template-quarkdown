@@ -13,7 +13,7 @@
 
     <!-- Optional: insert an image or quotation in the lower cover area.
     .container classname:{ua-cover-art}
-        ![Descrição da imagem](assets/cover-art.svg)
+        ![Descrição da imagem](../assets/cover-art.svg)
     -->
 
 .uaPage {ua-inner-cover}
