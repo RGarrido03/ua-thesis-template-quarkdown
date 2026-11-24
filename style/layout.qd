@@ -3,7 +3,7 @@
 .docauthor {.uaAuthorFirst .uaAuthorLast}
 .doclang {.uaLanguage}
 .theme {paperwhite} layout:{latex}
-.pageformat size:{A4} margin:{30mm 25mm 22mm 30mm}
+.pageformat size:{a4} margin:{30mm 25mm 22mm 30mm}
 .pageformat side:{left} margin:{30mm 30mm 22mm 25mm}
 .noautopagebreak
 .font size:{11pt}
