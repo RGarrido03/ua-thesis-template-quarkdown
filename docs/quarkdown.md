@@ -16,6 +16,12 @@ This port targets [Quarkdown 2.7.0](https://github.com/iamgio/quarkdown/releases
 
 The economy is mainly in the manuscript: authors don't need macros for every heading, list, figure or footnote. The institutional design still needs a layout layer. Quarkdown also offers Mermaid, charts, multi-column and landscape layouts, and reusable functions; you don't need any of those extensions to start a chapter.
 
+## Language and translations
+
+There is no `babel` dependency. Set `uaLanguage` to `pt` or `en` in [metadata.qd](../metadata.qd) to select [Quarkdown's document locale](https://quarkdown.com/wiki/localization/). Quarkdown uses that locale for built-in caption and reference labels and passes it to IEEE CSL for bibliography phrases. Chromium uses the rendered HTML `lang` attributes for language-aware hyphenation where supported.
+
+Template labels such as **Índice / Contents** use the `.localization {ua}` table in [style/layout.qd](../style/layout.qd). The chapter and appendix markers and the language tags for the bilingual front matter are set in [public/thesis.js](../public/thesis.js). The setting does not translate prose: the Portuguese and English titles and abstracts are separately authored, and the sample chapters and required Portuguese cover wording are unchanged by the switch.
+
 ## What is a port, not a native feature
 
 - **Page furniture.** The CSS sets full-bleed preface pages, the cover stripe and branding, the heading treatments, right-hand chapter starts and empty filler versos. In Paged.js, a page break selector must match within the content fragment, not depend on an ancestor outside it. The CSS also keeps pagination markers out of the physical flow.
