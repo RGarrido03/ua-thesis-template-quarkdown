@@ -1,0 +1,12 @@
+# Informações Adicionais {#appendix-more}
+
+.container classname:{ua-introduction} fontstyle:{italic}
+    Este apêndice foi criado para fornecer informações adicionais que complementam o conteúdo principal da tese.
+
+## Secção de Exemplo {#app:secao}
+
+Esta secção exemplifica como apresentar detalhes suplementares, dados brutos ou outra informação relevante que não foi incluída no corpo principal. Uma referência como .ref {app:secao} usa a letra do apêndice.
+
+### Outra Secção de Exemplo {#app:outra}
+
+Aqui está outra secção de exemplo. Apêndices são úteis para manter o fluxo do texto principal, enquanto ainda fornecem acesso a informações importantes para leitores interessados.

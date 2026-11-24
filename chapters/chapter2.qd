@@ -1,0 +1,91 @@
+.include {latex-siunitx}
+
+# Capítulo de Demonstração {#chap:demonstration}
+
+.container classname:{ua-introduction} fontstyle:{italic}
+    Este capítulo foi criado por um modelo de Inteligência Artificial para demonstrar as várias funcionalidades disponíveis neste template.
+
+O capítulo foi concebido para ser um guia prático para estudantes, apresentando elementos comuns de uma tese, como formatação de texto, citações, figuras, tabelas e listagens de código. O objetivo é fornecer exemplos claros que possam ser facilmente adaptados para o seu próprio trabalho.
+
+## Estrutura do Documento {#sec:demo-structure}
+
+Uma tese é tipicamente estruturada em capítulos, secções e subsecções. Isto ajuda a organizar o conteúdo de forma lógica e facilita a navegação para os leitores.
+
+### Secções e Subsecções {#sec:demo-sections}
+
+Usa `##` para secções e `###` para subsecções. O nível `####` também é numerado, mas não entra no índice.
+
+#### Uma Nota sobre Rótulos (Labels) {#sec:demo-labels}
+
+Atribui um identificador estável com `{#id}` e cita-o com `.ref {id}`. Por exemplo, este é o .ref {chap:demonstration}.
+
+## Citações e Bibliografia {#sec:demo-citations}
+
+Citar as suas fontes corretamente é crucial. Este template usa uma bibliografia BibTeX processada com o estilo IEEE. Pode citar uma fonte entre parênteses, como as normas da Universidade de Aveiro .cite {modelos}.
+
+Aqui estão alguns comandos de citação comuns:
+
+- `.cite {chave}`: para uma citação parentética, e.g., .cite {modelos}.
+- `.cite {chave1, chave2}`: para uma citação combinada de várias entradas.
+
+## Figuras e Tabelas {#sec:demo-floats}
+
+### Inclusão de Figuras {#sec:demo-figures}
+
+Inclui imagens com a sintaxe Markdown e acrescenta uma legenda entre aspas. A .ref {fig:placeholder} mostra uma alternativa para assinalar uma figura que ainda está por preparar.
+
+.figure caption:{Um exemplo de uma figura provisória.} ref:{fig:placeholder}
+    .container classname:{ua-missing-figure} border:{gray} borderwidth:{1px} borderstyle:{dashed} padding:{1cm} textalignment:{center}
+        Uma figura de exemplo
+
+!(25mm)[Logótipo da Universidade de Aveiro](../assets/ua-logo.svg "Logótipo da Universidade de Aveiro.") {#fig:ua}
+
+### Criação de Tabelas {#sec:demo-tables}
+
+As tabelas são usadas para apresentar dados estruturados. A .ref {tab:example} é um exemplo simples.
+
+| Parâmetro | Valor | Unidade |
+|-----------|-------|---------|
+| Velocidade da Luz \(c) | $ 2.998 \times 10^8 $ | $ \unit{\metre\per\second} $ |
+| Constante Gravitacional (G) | $ 6.674 \times 10^{-11} $ | $ \unit{\newton\metre\squared\per\kilogram\squared} $ |
+| Tamanho de um ficheiro | 1 | $ \mathrm{MiB} $ |
+"Uma tabela de exemplo mostrando diferentes tipos de dados." {#tab:example}
+
+## Listagens de Código {#sec:demo-code}
+
+O realce de sintaxe funciona diretamente nos blocos de código Markdown. A .ref {lst:c-example} inclui uma legenda e números de linha.
+
+```c "Um programa Olá, Mundo! escrito em C." {#lst:c-example}
+#include <stdio.h>
+
+int main()
+{
+    // Imprime uma saudação na consola
+    printf("Olá, Mundo!\n");
+    return 0;
+}
+```
+
+Para código em linha, pode usar .codespan {print("Olá de Python!")}.
+
+## Fórmulas Matemáticas {#sec:demo-math}
+
+Pode escrever matemática em linha como $ E = mc^2 $. Para equações em destaque, use um bloco de fórmula, que também fornece numeração.
+
+$$$ {#eq:gaussian}
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$$
+
+A equação .ref {eq:gaussian} é a integral gaussiana.
+
+## Acrónimos e Unidades {#sec:demo-acronyms}
+
+### Acrónimos {#sec:demo-acronyms-list}
+
+O primeiro uso de .uaAc {ADSL} inclui a forma por extenso. As ocorrências seguintes, como .uaAc {ADSL}, ficam abreviadas. Usa `form:{long}` para escrever .uaAc {H2O} form:{long} e `form:{short}` para escrever .uaAc {H2O} form:{short}.
+
+### Unidades SI {#sec:demo-si}
+
+As grandezas físicas devem ser escritas com unidades formatadas de forma consistente. Por exemplo, a aceleração da gravidade é aproximadamente $ \qty{9.8}{\metre\per\second\squared} $.[^units]
+
+[^units]: Este exemplo usa a biblioteca `latex-siunitx` que vem com o Quarkdown.

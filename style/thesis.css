@@ -1,0 +1,168 @@
+/* A4 layout port of uaThesisTemplate.sty and the memoir sample. */
+@font-face { font-family: Pagella; src: url("fonts/texgyrepagella-regular.otf"); }
+@font-face { font-family: Pagella; src: url("fonts/texgyrepagella-bold.otf"); font-weight: 700; }
+@font-face { font-family: Pagella; src: url("fonts/texgyrepagella-italic.otf"); font-style: italic; }
+@font-face { font-family: Pagella; src: url("fonts/texgyrepagella-bolditalic.otf"); font-weight: 700; font-style: italic; }
+@font-face { font-family: Heros; src: url("fonts/texgyreheros-regular.otf"); }
+@font-face { font-family: Heros; src: url("fonts/texgyreheros-bold.otf"); font-weight: 700; }
+
+:root {
+  --qd-main-font: Pagella, Palatino, "Book Antiqua", serif;
+  --qd-heading-font: var(--qd-main-font);
+  --qd-paragraph-vertical-margin: 0;
+  --qd-block-margin: 0.8em;
+  --qd-link-color: inherit;
+}
+
+@page ua-preface { margin: 0; }
+
+.ua-preface { page: ua-preface; break-before: page; }
+.ua-outer-cover { break-before: auto; }
+.quarkdown .ua-preface {
+  margin: 0;
+  position: relative;
+  font: 10pt/1.25 Heros, Helvetica, Arial, sans-serif;
+  text-align: start;
+}
+.quarkdown .ua-preface p, .quarkdown .ua-preface figure { margin: 0; line-height: inherit; text-indent: 0; }
+.quarkdown .ua-preface p + p { margin-top: 1em; }
+
+.ua-cover-header { position: relative; height: 57.5mm; }
+.ua-inner-cover .ua-cover-header { height: 62.5mm; }
+.ua-identity, .ua-department { position: absolute; top: 8.5mm; }
+.ua-identity { left: 77mm; line-height: 3.9mm; }
+.ua-department { left: 117mm; max-width: 80mm; }
+.ua-cover-header img { position: absolute; top: 8.5mm; left: 67mm; height: 9mm; width: auto; }
+.ua-inner-cover .ua-cover-header img { left: 63.56mm; top: 6.5mm; height: 15.88mm; }
+.ua-cover-header .ua-map img { left: 36mm; max-width: 39mm; object-fit: contain; }
+.ua-inner-cover .ua-cover-header .ua-map img { left: 10.5mm; height: 15mm; max-width: 65mm; }
+
+.ua-cover-header { --stripe: #9b301c; --stripe-center: var(--stripe); }
+.ua-cover-header.arts { --stripe: #c6aadb; }
+.ua-cover-header.sciences { --stripe: #7fd6db; }
+.ua-cover-header.education { --stripe: #f47c00; }
+.ua-cover-header.economy { --stripe: #f43f4f; --stripe-center: white; }
+.ua-cover-header.humanities { --stripe: #005b99; }
+.ua-cover-header.health { --stripe: #f9e04c; }
+.ua-outer-cover .ua-cover-header::before {
+  content: "";
+  position: absolute;
+  left: 77mm;
+  top: 0;
+  width: 133mm;
+  height: 4mm;
+  background: linear-gradient(to bottom, var(--stripe) 33.33%, var(--stripe-center) 33.33% 66.67%, var(--stripe) 66.67%);
+}
+.ua-outer-cover .ua-cover-header::after {
+  content: "";
+  position: absolute;
+  inset: 11.9mm 0 auto;
+  height: 0.105mm;
+  background: linear-gradient(to right, black 66mm, transparent 66mm 75.2mm, black 75.2mm);
+}
+.ua-outer-cover .ua-cover-header:has(.ua-map)::after {
+  background: linear-gradient(to right, black 35mm, transparent 35mm 75.2mm, black 75.2mm);
+}
+
+.quarkdown .ua-titles, .quarkdown .ua-row {
+  margin-inline-start: 15mm;
+  display: grid;
+  grid-template-columns: 52mm 110mm;
+  column-gap: 10mm;
+}
+.ua-titles { font-weight: 700; font-size: 14pt; line-height: 6.15mm; }
+.ua-title-alt { padding-top: 7.5mm; }
+.ua-degree-statement { margin: 25mm 23mm 0 77mm; line-height: 4.4mm; text-align: justify; }
+.quarkdown .ua-grants {
+  margin: 75mm 23mm 0 77mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+}
+.ua-draft { position: absolute; top: 118mm; left: 84.3mm; font: bold 24pt/12mm Heros, Helvetica, Arial, sans-serif; }
+.ua-cover-art { margin: 36mm 23mm 0 77mm; }
+.ua-cover-art img { max-height: 60mm; }
+.quarkdown .ua-jury, .quarkdown .ua-acknowledgements { padding-top: 98mm; }
+.quarkdown .ua-abstract { padding-top: 58mm; }
+.ua-abstract .ua-row + .ua-row { margin-top: 10mm; }
+.ua-label { font-size: 11pt; }
+.ua-jury .ua-row { margin-bottom: 4mm; }
+.ua-jury .ua-row:first-child { margin-bottom: 2mm; }
+.ua-jury .ua-row:not(:first-child) .ua-label { font-size: 10pt; }
+.ua-jury .ua-value p + p { margin-top: 1mm; }
+.ua-juror-role { font-size: 8pt; }
+.ua-abstract .ua-value { text-align: justify; hyphens: none; }
+
+/* Right-hand chapter openings, but no inserted blank between the two float lists. */
+/* Paged.js matches break selectors inside the document fragment, not under <body>. */
+.ua-toc, .ua-acronyms, .ua-main-start, .ua-main h1 { break-before: right; }
+.ua-contents { break-before: page; }
+.ua-main-start h1:first-of-type { break-before: auto; }
+.quarkdown .ua-index h1, .quarkdown .ua-index #table-of-contents { text-align: end; }
+.quarkdown .ua-index h1 {
+  font-size: 24pt;
+  margin: 0 0 12mm;
+  padding-top: 25mm;
+}
+.ua-index { --qd-line-height: 1.15; font-size: 10pt; }
+.quarkdown .ua-index nav { margin-block: 0; }
+.quarkdown .ua-index nav li { margin-block: 0.2em; }
+.quarkdown .ua-index nav a { min-width: 0; }
+.quarkdown .ua-index nav .toc-page-number { order: 2; padding-left: .5em; }
+.ua-contents nav a::after,
+.ua-toc nav li[data-depth]:not([data-depth="1"]) > a::after {
+  content: "";
+  flex: 1;
+  order: 1;
+  margin-inline-start: .5em;
+  border-bottom: 1px dotted;
+}
+.quarkdown .ua-contents nav a { font-weight: normal; }
+.ua-glossary { columns: 2; column-gap: 8mm; font-size: 9pt; }
+.ua-abbr-row { break-inside: avoid; }
+.ua-abbr-key { display: inline-block; min-width: 16mm; font-weight: bold; }
+.ua-main abbr[title] { text-decoration: none; }
+
+.quarkdown .ua-main h1 {
+  position: relative;
+  margin: 0 0 10mm;
+  padding-top: 25mm;
+  text-align: end;
+  font-size: 24pt;
+  line-height: 1.15;
+}
+.quarkdown .ua-main h1[data-location] { padding-top: 54mm; }
+.quarkdown .ua-main h1[data-location]::before {
+  content: attr(data-location);
+  position: absolute;
+  top: 21mm;
+  right: -25mm;
+  padding: 0 8mm 0 0;
+  border-right: 2.4mm solid;
+  font: normal 54pt/18mm Pagella, Palatino, serif;
+}
+.quarkdown .ua-main h1[data-location]::after {
+  content: "CAPÍTULO";
+  position: absolute;
+  top: 34mm;
+  right: 0;
+  font: normal small-caps 15pt/1 Pagella, Palatino, serif;
+}
+html:lang(en) .quarkdown .ua-main h1[data-location]::after { content: "CHAPTER"; }
+.quarkdown .ua-main .ua-appendices h1[data-location]::after { content: "APÊNDICE"; }
+html:lang(en) .quarkdown .ua-main .ua-appendices h1[data-location]::after { content: "APPENDIX"; }
+.quarkdown .ua-main h2 { font-size: 16pt; }
+.quarkdown .ua-main h3 { font-size: 13pt; }
+.quarkdown .ua-main h4 { font-size: 11pt; }
+.ua-main { --qd-first-paragraph-text-indent: 1.5em; }
+.quarkdown .ua-introduction { display: block; margin: 0 2em 1.5em 0; }
+.quarkdown .ua-introduction p { text-indent: 1.5em !important; }
+.quarkdown .ua-main figcaption { font-size: 9pt; line-height: 1.2; }
+.quarkdown .ua-references { font-size: 9pt; line-height: 1.2; }
+.quarkdown .ua-references li { margin-bottom: 8pt; }
+.quarkdown .page-margin-content { font: 10pt/1 Pagella, Palatino, serif; }
+.quarkdown .pagedjs_blank_page .page-margin-content,
+.quarkdown .pagedjs_left_page .page-margin-bottom-outside,
+.quarkdown .pagedjs_right_page:not(:has(h1)) .page-margin-bottom-outside,
+.quarkdown .pagedjs_right_page:has(h1) .page-margin-bottom-center { display: none !important; }
+.quarkdown .page-number-reset, .quarkdown .page-number-formatter { display: none !important; }

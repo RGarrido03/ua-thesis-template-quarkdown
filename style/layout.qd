@@ -1,0 +1,61 @@
+.doctype {paged}
+.docname {.uaTitlePt}
+.docauthor {.uaAuthorFirst .uaAuthorLast}
+.doclang {.uaLanguage}
+.theme {paperwhite} layout:{latex}
+.pageformat size:{A4} margin:{30mm 25mm 22mm 30mm}
+.pageformat side:{left} margin:{30mm 30mm 22mm 25mm}
+.noautopagebreak
+.font size:{11pt}
+.paragraphstyle lineheight:{1.5} indent:{1.5} spacing:{0}
+.captionposition tables:{top}
+.numbering
+    - headings: 1.1.1.1
+    - figures: 1.1
+    - tables: 1.1
+    - equations: (1.1)
+    - code: 1.1
+
+.localization {ua}
+    - pt
+      - contents: Índice
+      - tables: Lista de Tabelas
+      - figures: Lista de Figuras
+      - listings: Lista de Excertos de Código
+      - acronyms: Acrónimos
+      - references: Referências Bibliográficas
+    - en
+      - contents: Contents
+      - tables: List of Tables
+      - figures: List of Figures
+      - listings: List of Listings
+      - acronyms: Acronyms
+      - references: References
+
+<!-- Preserve @font-face and @page rules verbatim; .css adds !important to declarations. -->
+.html {<style data-hidden="">.read {thesis.css}</style>}
+
+.function {uaIndexTitle}
+    title id:
+    .heading {.title} depth:{1} numbered:{no} ref:{.id}
+
+.function {uaList}
+    kind title:
+    .container fullwidth:{yes} classname:{ua-index ua-contents}
+        .uaIndexTitle {.title} {ua-list-.kind}
+        .html {<nav data-role="table-of-contents" data-ua-list=".kind"></nav>}
+
+.function {uaAc}
+    short form?:
+    .if {.isempty {.uaAcronyms::get {.short} orelse:{}}}
+        .error {Unknown acronym: .short}
+    .text {.short} classname:{ua-abbr .form::otherwise {auto}}
+
+.function {uaAcronymIndex}
+    .container fullwidth:{yes} classname:{ua-index ua-acronyms}
+        .uaIndexTitle {.localize {ua:acronyms}} {ua-acronyms}
+        .container fullwidth:{yes} classname:{ua-glossary}
+            .foreach {.uaAcronyms}
+                short long:
+                .container fullwidth:{yes} classname:{ua-abbr-row}
+                    .text {.short} classname:{ua-abbr-key} .text {.long} classname:{ua-abbr-long}

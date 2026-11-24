@@ -1,0 +1,46 @@
+.include {metadata.qd}
+.include {acronyms.qd}
+.include {style/layout.qd}
+.include {style/cover.qd}
+
+.if {.uaCover}
+    .include {front/cover.qd}
+    .if {.uaJury} {.include {front/jury.qd}}
+    .if {.uaAcknowledgements} {.include {front/acknowledgements.qd}}
+    .include {front/abstract-pt.qd}
+    .if {.uaEnglish} {.include {front/abstract-en.qd}}
+    .if {.uaAiStatement} {.include {front/ai-statement.qd}}
+
+.container fullwidth:{yes} classname:{ua-index ua-toc}
+    .formatpagenumber {i}
+    .resetpagenumber
+    .pagemargin {bottomoutside}
+        .currentpage
+    .footer
+        .currentpage
+    .tableofcontents title:{.localize {ua:contents}} maxdepth:{3} indexheading:{yes}
+
+.uaList {tables} {.localize {ua:tables}}
+.uaList {figures} {.localize {ua:figures}}
+.if {.uaListings}
+    .uaList {listings} {.localize {ua:listings}}
+
+.uaAcronymIndex
+
+.container fullwidth:{yes} classname:{ua-main}
+    .container fullwidth:{yes} classname:{ua-main-start}
+        .formatpagenumber {1}
+        .resetpagenumber
+        .include {chapters/chapter1.qd}
+
+    .include {chapters/chapter2.qd}
+    .include {chapters/chapter-conclusions.qd}
+
+    .container fullwidth:{yes} classname:{ua-references}
+        .uaIndexTitle {.localize {ua:references}} {ua-references}
+        .bibliography {bib/references.bib} title:{} style:{ieee}
+
+    .container fullwidth:{yes} classname:{ua-appendices}
+        .include {chapters/appendix-more.qd}
+
+.html {<script src="thesis.js" data-hidden=""></script>}

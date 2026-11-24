@@ -1,0 +1,5 @@
+<!-- Define short forms and their expansions once. The index shows only those used. -->
+.var {uaAcronyms}
+    .dictionary
+        - ADSL: Asymmetric Digital Subscriber Line
+        - H2O: água
