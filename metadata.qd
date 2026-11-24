@@ -1,0 +1,35 @@
+<!-- Thesis settings. Edit these values, then edit the optional pages in front/. -->
+.var {uaYear} {2026}
+.var {uaAuthorFirst} {Primeiro Nome}
+.var {uaAuthorLast} {Último Nome}
+.var {uaTitlePt} {Título da Tese em Português}
+.var {uaTitleEn} {Thesis Title in English}
+<!-- Quarkdown localization tables use the base language: pt or en. -->
+.var {uaLanguage} {pt}
+
+<!-- dissertation, thesis, proposal, or progress-report -->
+.var {uaType} {dissertation}
+.var {uaDegree} {Mestre}
+.var {uaDegreeName} {Engenharia de Computadores e Telemática}
+.var {uaSupervision} {do Doutor (nome do orientador), Professor associado do Departamento de Eletrónica, Telecomunicações e Informática da Universidade de Aveiro, e da Doutora (nome da coorientadora), Professora auxiliar da Universidade de Aveiro}
+
+<!-- arts, sciences, education, economy, engineering, humanities, or health -->
+.var {uaArea} {engineering}
+.var {uaDepartment} {Departamento de Eletrónica, Telecomunicações e Informática}
+.var {uaShowDepartment} {no}
+.var {uaFinal} {no}
+<!-- none, bioplant, i, fis, or tele -->
+.var {uaMap} {none}
+
+.var {uaCover} {yes}
+.var {uaEnglish} {yes}
+.var {uaJury} {yes}
+.var {uaAcknowledgements} {yes}
+.var {uaAiStatement} {yes}
+.var {uaGrants} {yes}
+.var {uaListings} {no}
+
+.docdescription {Dissertação apresentada à Universidade de Aveiro}
+.dockeywords
+    - palavra-chave
+    - Universidade de Aveiro

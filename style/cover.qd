@@ -1,0 +1,60 @@
+<!-- Layout adapted from uaThesisTemplate.sty (Tomás Oliveira e Silva, João Paulo Barraca, Pedro Miguel Oliveira Estima). -->
+.function {uaPage}
+    kind contents:
+    .container fullwidth:{yes} classname:{ua-preface .kind}
+        .contents
+
+.function {uaCoverHeader}
+    .container fullwidth:{yes} classname:{ua-cover-header .uaArea}
+        .if {.uaMap::equals {none}}
+            ![Universidade de Aveiro](../assets/ua-logo.svg)
+        .ifnot {.uaMap::equals {none}}
+            .container classname:{ua-map}
+                ![Programa Doutoral MAP](../assets/map-program.png)
+
+        .container classname:{ua-identity}
+            **Universidade de Aveiro** .br
+            **.uaYear**
+
+        .if {.uaShowDepartment}
+            .container classname:{ua-department}
+                .uaDepartment
+
+.function {uaTitles}
+    showAuthor:
+    .container classname:{ua-titles}
+        .container classname:{ua-author}
+            .if {.showAuthor}
+                .uaAuthorFirst .br
+                .uaAuthorLast
+        .container classname:{ua-title}
+            .text {.uaTitlePt} classname:{ua-pt}
+
+            .if {.uaEnglish}
+                .container fullwidth:{yes} classname:{ua-title-alt}
+                    .text {.uaTitleEn} classname:{ua-en}
+
+.function {uaRow}
+    label contents:
+    .container classname:{ua-row}
+        .container classname:{ua-label}
+            .label
+        .container classname:{ua-value}
+            .contents
+
+.function {uaJuror}
+    label name role:
+    .uaRow {.label}
+        .name
+
+        .text {.role} classname:{ua-juror-role}
+
+.var {uaTypes} {.dictionary
+    - dissertation: Dissertação apresentada
+    - thesis: Tese apresentada
+    - proposal: Proposta de Tese apresentada
+    - progress-report: Relatório de Progresso apresentado
+}
+
+.function {uaDegreeStatement}
+    .uaTypes::get {.uaType} à Universidade de Aveiro para cumprimento dos requisitos necessários à .if {.uaType::equals {proposal}} {conclusão da unidade curricular Proposta de Tese, condição necessária para a }obtenção do grau de .uaDegree .ifnot {.uaMap::equals {none}} {no âmbito do Programa de Doutoramento }em .if {.uaMap::equals {none}} {.uaDegreeName,} .ifnot {.uaMap::equals {none}} {.uaDegreeName das Universidades do Minho, Aveiro e Porto (MAP-.uaMap),} sob a orientação científica .uaSupervision.

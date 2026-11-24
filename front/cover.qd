@@ -1,0 +1,25 @@
+.uaPage {ua-outer-cover}
+    .uaCoverHeader
+    .uaTitles {yes}
+
+    .ifnot {.uaFinal}
+        .container classname:{ua-draft}
+            .if {.uaType::equals {proposal}}
+                PROPOSTA .br
+                DE TESE
+            .ifnot {.uaType::equals {proposal}}
+                DOCUMENTO .br
+                PROVISÓRIO
+
+    <!-- Optional: insert an image or quotation in the lower cover area.
+    .container classname:{ua-cover-art}
+        ![Descrição da imagem](assets/cover-art.svg)
+    -->
+
+.uaPage {ua-inner-cover}
+    .uaCoverHeader
+    .uaTitles {no}
+    .container fullwidth:{yes} classname:{ua-degree-statement}
+        .uaDegreeStatement
+    .if {.uaGrants}
+        .include {../front/grants.qd}

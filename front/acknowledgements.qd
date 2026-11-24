@@ -1,0 +1,3 @@
+.uaPage {ua-acknowledgements}
+    .uaRow {**agradecimentos /**.br**acknowledgements**}
+        Espaço reservado para os agradecimentos. Este modelo deriva do [modelo LaTeX do DETI](https://github.com/detiuaveiro/ua-thesis-template).

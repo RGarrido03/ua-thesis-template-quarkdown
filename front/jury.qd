@@ -1,0 +1,8 @@
+.uaPage {ua-jury}
+    .uaRow {**o júri / the jury**} {}
+
+    .uaJuror {presidente / president} {Prof. X} {professor associado da Universidade de Aveiro}
+    .uaJuror {vogais / examiners committee} {Prof. X} {professor associado da Universidade de Aveiro}
+    .uaJuror {} {Prof. X} {professora auxiliar da Universidade de Aveiro}
+    .uaJuror {} {Prof. X} {professor auxiliar da Universidade de Aveiro}
+    .uaJuror {} {Prof. X} {professora auxiliar da Universidade de Aveiro}
