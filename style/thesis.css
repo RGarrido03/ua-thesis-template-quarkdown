@@ -92,6 +92,11 @@
 .ua-jury .ua-value p + p { margin-top: 1mm; }
 .ua-juror-role { font-size: 8pt; }
 .ua-abstract .ua-value { text-align: justify; hyphens: none; }
+.quarkdown .ua-ai-statement { line-height: 13.55pt; }
+.quarkdown .ua-ai-statement .ua-row p { hyphens: none; }
+.ua-ai-statement .ua-value p { --qd-paragraph-vertical-margin: 13.55pt; }
+/* The bold disclosure heading has a smaller gap than two disclosure paragraphs. */
+.ua-ai-statement .ua-value p:nth-child(2) { --qd-paragraph-vertical-margin: 6pt; }
 
 /* Right-hand chapter openings, but no inserted blank between the two float lists. */
 /* Paged.js matches break selectors inside the document fragment, not under <body>. */
@@ -118,10 +123,16 @@
   margin-inline-start: .5em;
   border-bottom: 1px dotted;
 }
-.quarkdown .ua-contents nav a { font-weight: normal; }
-.ua-glossary { columns: 2; column-gap: 8mm; font-size: 9pt; }
+.quarkdown .ua-contents nav[data-ua-list] > ol > li > a { font-weight: normal; }
+.ua-glossary { columns: 2; column-gap: 10pt; font-size: 9pt; }
 .ua-abbr-row { break-inside: avoid; }
-.ua-abbr-key { display: inline-block; min-width: 16mm; font-weight: bold; }
+.ua-abbr-row > p {
+  display: grid;
+  grid-template-columns: fit-content(40%) minmax(0, 1fr);
+  column-gap: .65em;
+  text-align: start;
+}
+.ua-abbr-key { font-weight: bold; overflow-wrap: anywhere; }
 .ua-main abbr[title] { text-decoration: none; }
 
 .quarkdown .ua-main h1 {
